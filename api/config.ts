@@ -2,11 +2,15 @@ import path from 'path';
 import {CorsOptions} from 'cors';
 import { configDotenv } from 'dotenv';
 
-configDotenv();
+const envFile = process.env['NODE_ENV']
+  ? `.${process.env['NODE_ENV']}.env`
+  : '.env';
+
+configDotenv({ path: envFile });
 
 const rootPath = __dirname;
 
-const corsWhitelist = ['http://localhost:5173'];
+const corsWhitelist = ['http://localhost:5173', 'http://localhost:5183'];
 
 const corsOptions: CorsOptions = {
   origin: (origin, callback) => {
@@ -19,13 +23,14 @@ const corsOptions: CorsOptions = {
 };
 
 const config = {
+  port: process.env['PORT'] || 8000,
   rootPath,
   publicPath: path.join(rootPath, 'public'),
   corsOptions,
-  database: 'mongodb://localhost/shop',
+  database: process.env['MONGO_DB_URL'] || 'mongodb://localhost/shop',
   google: {
-    clientId: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    clientId: process.env['GOOGLE_CLIENT_ID'],
+    clientSecret: process.env['GOOGLE_CLIENT_SECRET'],
   }
 };
 

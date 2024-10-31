@@ -1,4 +1,4 @@
 node_modules
 .idea
-db.json
 .env
+.test.env
