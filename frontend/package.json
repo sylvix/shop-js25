@@ -12,6 +12,7 @@
     "format": "npx prettier . --write",
     "typecheck": "npx tsc --noemit",
     "preview": "vite preview",
+    "preview:test": "vite preview --port 5183",
     "postinstall": "node ./postinstall.js"
   },
   "dependencies": {
