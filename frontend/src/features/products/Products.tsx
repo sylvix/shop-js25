@@ -59,6 +59,9 @@ const Products = () => {
         <CategoriesMenu categories={categories} />
       </Grid>
       <Grid item xs container direction="column" spacing={2}>
+        <Grid item>
+          <Typography variant="body1">Welcome to our PC parts shop!</Typography>
+        </Grid>
         <Grid item container justifyContent="space-between" alignItems="center">
           <Grid item>
             <Typography variant="h4">{pageTitle}</Typography>
