@@ -19,6 +19,7 @@ Given('я залогинен как {string}', (userEmail: string) => {
   I.fillField('Email', userEmail);
   I.fillField('Password', userPasswords[userEmail]);
   I.click(`//button[contains(., 'Sign in')]`);
+  I.see(`HELLO, ${userEmail.toUpperCase()}`);
 });
 
 When('ввожу в поле {string} значение {string}', (name: string, value: string) => {
