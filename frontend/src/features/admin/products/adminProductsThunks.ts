@@ -5,7 +5,7 @@ import axiosApi from '@/axiosApi';
 export const fetchAdminProducts = createAsyncThunk<Product[], string | undefined>(
   'adminProducts/fetchAll',
   async (categoryId) => {
-    const { data: products } = await axiosApi.get<Product[]>(`/products`, { params: { category: categoryId } });
+    const { data: products } = await axiosApi.get<Product[]>(`/admin/products`, { params: { category: categoryId } });
     return products;
   },
 );
@@ -23,6 +23,6 @@ export const createAdminProduct = createAsyncThunk<void, ProductMutation>(
       }
     });
 
-    await axiosApi.post('/products', formData);
+    await axiosApi.post('/admin/products', formData);
   },
 );
