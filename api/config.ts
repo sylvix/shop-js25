@@ -10,7 +10,11 @@ configDotenv({ path: envFile });
 
 const rootPath = __dirname;
 
-const corsWhitelist = ['http://localhost:5173', 'http://localhost:5183', 'http://165.227.144.15'];
+const corsWhitelist = [
+  'http://localhost:5173',
+  'http://localhost:5183',
+  'https://shopjs.ddns.net'
+];
 
 const corsOptions: CorsOptions = {
   origin: (origin, callback) => {
